@@ -1,9 +1,38 @@
-body {
+html, body {
   padding: 0;
   margin: 0;
+  height: 100%;
 }
 
 nav.navbar {
   border-radius: 0;
   padding: 5px;
+  margin: 0;
+}
+
+.ngview {
+  height: 100%;
+}
+
+.container-fluid.radio {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.radio, .checkbox {
+  height: 100%;
+  margin: 0;
+}
+
+.map-area, .info-area {
+  height: 100%;
+}
+
+.map-area {
+  background: blue;
+}
+
+.info-area {
+  background: yellow;
 }

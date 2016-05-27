@@ -14,19 +14,21 @@ angular
             var countries = null;
             var text = $.ajax({type: "GET", url: "../docs/countries.txt", async: false}).responseText; // get the list of countries in ISO format (accepted by LastFM)
             var txtArray = text.split("\n");
-            var data = [];
+            var dataArray = [];
 
-             return txtArray.forEach(function(country) { // api cal for each country
+            function getArtists(i) {
+              var country = txtArray[i];
               var apiBase = 'http://ws.audioscrobbler.com/2.0/?method=geo.gettopartists&country=' + country + '&api_key=b618453443ef733c126b9d88855f9702&format=json&limit=3';
-              return $http.get(apiBase)
-               .then(function(response) {
-                   response.country = country;
-                   data.push(response);
-                   return data;
+              return $http.get(apiBase).success(function(response) {
+                  response.country = country;
+                  return response;
               });
+            }
 
-            })
+            for(var i = 0; i < txtArray.length; i++)
+              dataArray.push(getArtists(i));
 
+            return dataArray;
 
           }
         }

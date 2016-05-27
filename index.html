@@ -2,25 +2,34 @@
 <html ng-app="app">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="https://js.arcgis.com/4.0/esri/css/main.css">
-    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css" media="screen" title="bootstrap css" charset="utf-8">
-    <script src="https://js.arcgis.com/4.0/"></script>
-    <script type="text/javascript" src="/node_modules/angular/angular.js"></script>
-    <script type="text/javascript" src="/node_modules/angular-route/angular-route.js"></script>
-    <script type="text/javascript" src="/node_modules/jquery/dist/jquery.js"></script>
-    <script type="text/javascript" src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
-    <link rel="stylesheet" href="/css/custom.css" media="screen" title="custom css parameters" charset="utf-8">
-
+    <link rel="stylesheet" type="text/css" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/4.0/esri/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/css/app.css">
     <title> Fan Map </title>
 
   </head>
   <body ng-cloak>
 
-    <nav id="navbar">
-
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Fan Map</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a ng-href="#/radiomap">RadioMap</a></li>
+          <li><a ng-href="#/fanmap">FanMap</a></li>
+        </ul>
+      </div>
     </nav>
+
+
     <div ng-view></div>
 
+    <script src="https://js.arcgis.com/4.0/"></script>
+    <script type="text/javascript" src="/node_modules/angular/angular.js"></script>
+    <script type="text/javascript" src="/node_modules/angular-route/angular-route.js"></script>
+    <script type="text/javascript" src="/node_modules/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
     <script type="text/javascript" src="/js/main.js"></script>
     <script type="text/javascript" src="/js/controllers/radiomap.js"></script>
     <script type="text/javascript" src="/js/controllers/fanmap.js"></script>

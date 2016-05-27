@@ -27,6 +27,7 @@ nav.navbar {
 
 .map-area, .info-area {
   height: 100%;
+  padding: 0;
 }
 
 .map-area {

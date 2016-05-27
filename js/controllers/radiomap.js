@@ -8,7 +8,7 @@ angular
       var p = Promise.resolve(topCountryArtists[i]);
       p.then(function(v) {
         cont.push(v);
-        //console.log(v);
+        console.log(v);
       })
     }
 

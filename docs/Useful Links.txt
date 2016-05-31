@@ -1,0 +1,6 @@
+- http://www.programmableweb.com/news/50000-radio-stations-one-api/2012/01/26 - radio directory of 50,000+ radio stations from all around the world 
+- https://developers.arcgis.com/javascript/ - ArcGIS Web API for map generation
+- https://dev.twitter.com/overview/documentation - Twitter API for social media analysis 
+- http://help.sentiment140.com/api - sentiment analysis API of twitter organization or individual 
+- http://developer.echonest.com/docs/v4/artist.html - biography of artist API 
+- http://www.last.fm/ - best internet radio that has a great API with geo-data and top artists 50 most listened artists for each country

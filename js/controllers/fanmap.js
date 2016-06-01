@@ -4,10 +4,13 @@ angular
     console.log('reached');
     var url = '/api/twitter/';
 
-    $http.get('http://localhost:3000/api/twitter/greenday').then(function(response, err) {
-      console.log('reached http');
-      console.log(response);
-      //console.log('e')
+    $http.get('/api/twitter/greenday').then(function(response, err) {
+      console.log('reached http****');
+      if(err) {
+        console.log('error', err);
+      } else {
+        console.log(response);
+      }
     });
 
 

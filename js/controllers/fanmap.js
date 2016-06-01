@@ -5,6 +5,7 @@ angular
     var artist = getArtist;
     vm.listOfUsers = [];
 
+<<<<<<< HEAD
     //console.log('reached me!');
     var url = '/api/twitter/';
 
@@ -17,6 +18,19 @@ angular
       }
     });
 
+=======
 
+    console.log('reached');
+    var url = '/api/twitter/';
+
+>>>>>>> d819aa219b17f11f0eaaa355195c5af89d97415f
+
+    $http.get('/api/twitter/greenday').then(function(response, err) {
+      if(err) {
+        console.log('error', err);
+      } else {
+        console.log(response);
+      }
+    });
 
   })

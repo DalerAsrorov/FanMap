@@ -33,9 +33,19 @@ angular
           }
         }
       })
-      .when('/fanmap', {
+      .when('/fanmap/:artist', {
         templateUrl: '/templates/fanmap.html',
-        controller: 'FanMapCtrl'
+        controller: 'FanMapCtrl',
+        controllerAs: 'vm',
+        resolve: {
+          getArtist: function($route, $http, $location) {
+            var artist =  $route.current.pathParams.artist;
+            if(!artist)
+              $location.path('/radiomap');
+
+            return artist;
+          }
+        }
       })
       .otherwise({
         redirectTo: "/radiomap"

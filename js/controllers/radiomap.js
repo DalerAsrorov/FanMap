@@ -51,11 +51,33 @@ angular
              zoom: 3
            });
 
+          // 1. create array of points with different attributes
+          var points = [
+             point = {
+               lineAt: {}, // object
+               location: {} // new Point({lat, lon})
+               markerSymbol: {} // new SimpleMarkerSymbol({[], {[]}})
+             },
+             point = {
 
+             },
+             // ...
+           ];
 
-           var points = [
+           // 2. create array of graphics
+           var pointGraphics = [];
+           pointGraphics.push(new Graphic(
+             geometry: location,
+             symbol: markerSymbol,
+             attributes: lineAtt,
+             popupTemplate: new PopupTemplate({
+               title: "{Name}",
+               content: "{*}"
+             })
+           ))
 
-           ]
+           // 3. Pass graphics to the view
+           // view.graphics.addMany(pointGraphics);
 
            /**********************
             * Create a point graphic

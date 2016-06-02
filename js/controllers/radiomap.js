@@ -1,8 +1,9 @@
 angular
   .module('app')
-  .controller('RadioMapCtrl', function(topCountryArtists, Geolocation) { // passed parameters in the controller can be included
+  .controller('RadioMapCtrl', function(topCountryArtists, Geolocation, $http) { // passed parameters in the controller can be included
     var vm = this;
     var cont = [];
+    vm.topList = [];
     vm.text = "Some random text";
 
     displayMap();
@@ -97,6 +98,9 @@ angular
 
             var topList = getTop(container, 10);
 
+            vm.topList = topList;
+            console.log(vm.topList);
+            //console.log(data);
             vm.items = [
               {
                 name: 'Daler'
@@ -127,8 +131,32 @@ angular
              var list = _.sortBy(ranks, function(o) { return o.count; });
              var topList = list.reverse().slice(0, index + 1)
 
+             var base = "http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist="; // + artist
+             var ending = "&api_key=b618453443ef733c126b9d88855f9702&format=json";
 
-             return topList;
+             var newTop = [];
+            // console.log(topList);
+             for(var i = 0; i < topList.length; i++) {
+               var name = topList[i].artist;
+              // console.log(name);
+               $http.get(base + name + ending)
+                .then(function(response) {
+                  console.log(response.data.artist.image[0]['#text']);
+                  newTop.push(response.data.artist);
+                  //vm.topList = newTop;
+                  var uniqueList = _.uniq(newTop, function(item, key, a) {
+                      return item.name;
+                  });
+                  vm.topList = uniqueList;
+                  // console.log(vm.topList);
+                  //console.log(response.data.artist);
+                });
+
+
+               topList[i].place = i + 1;
+             }
+
+
            }
 
 

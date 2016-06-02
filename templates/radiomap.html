@@ -13,10 +13,26 @@
           </div>
         </div>
         <div class="top-list">
-          <ul class="list-group">
-           <li class="list-group-item" ng-repeat="item in vm.items">
+          <div class="top-list-header">
+            <h1>World's Top Artists</h1>
+          </div>
+          <ul class="list-group list-group-artists">
+           <!-- <li class="list-group-item" ng-repeat="item in vm.topList">
              {{item.name}}
-           </li>
+           </li> -->
+           <li class="list-group-item" ng-repeat="item in vm.topList">
+             <div class="artist-box">
+               <img ng-src=" {{  item.image[4]['#text']}}" class="artist-box-image" alt="" />
+               <div class="artist-box-info">
+                 <h1>{{item.name}}</h1>
+                 <div>{{item.image[0].text}}</div>
+                 <div>{{item.stats.listeners}} listeners</div>
+                 <div>{{item.stats.playcount}} plays</div>
+                 <div>{{item.tags.tag[0].name}}</div>
+                 <div> <a href="fanmap">FanMap! </a></div>
+               </div>
+             </div>
+          </li>
          </ul>
         </div>
       </div>

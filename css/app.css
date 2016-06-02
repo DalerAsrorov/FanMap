@@ -49,7 +49,7 @@ nav.navbar {
 }
 
 .info-area {
-  background: yellow;
+  background: #fff;
 }
 
 .esri-ui-top-left.esri-ui-corner {
@@ -58,4 +58,22 @@ nav.navbar {
 
 .info-area-box {
   margin-top: 60px;
+}
+
+.artist-box-info {
+  text-align: center;
+}
+
+.artist-box-image {
+  width: 320;
+  height: 300px;
+  display: block;
+  float: none;
+  margin: 0 auto;
+}
+
+.list-group-artists {
+  overflow: auto;
+  height: 780px;
+  max-height: 780px;
 }

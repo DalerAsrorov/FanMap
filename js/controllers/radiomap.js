@@ -5,13 +5,6 @@ angular
     var cont = [];
     vm.text = "Some random text";
 
-    function getArtists(obj) {
-      if(obj.artist !== undefined)
-        return obj.artist;
-      else
-          console.log('no artists')
-    }
-
     displayMap();
     // display map on the page
     function displayMap() {
@@ -52,6 +45,7 @@ angular
                Geolocation.getGeo(country).then(function(geo) {
                  data.geoObj = geo; // {lat, lng}
                  plot(data);
+                 generateList(data);
                })
              })
            }
@@ -93,6 +87,51 @@ angular
 
              view.graphics.add(pointGraphic)
            }
+
+           var container = [];
+           function generateList(data) {
+             container.push(data.topartists.artist[0].name);
+             container.push(data.topartists.artist[1].name);
+             container.push(data.topartists.artist[2].name);
+
+
+            var topList = getTop(container, 10);
+
+            vm.items = [
+              {
+                name: 'Daler'
+              },
+              {
+                 name: 'Asrorov'
+              }
+            ]
+           }
+
+           function getTop(array, index) {
+             var counter = 0;
+             var ranks = [];
+
+             for(var i = 0; i < array.length; i++) {
+               var first = array[i];
+               for(var j = 0; j < array.length; j++) {
+                 if(i !== j && first === array[j]) {
+                   counter++;
+                 }
+               }
+               ranks.push({
+                 "artist": first,
+                 "count": counter
+               })
+             }
+
+             var list = _.sortBy(ranks, function(o) { return o.count; });
+             var topList = list.reverse().slice(0, index + 1)
+
+
+             return topList;
+           }
+
+
 
           // Geolocation.getGeo('United States').then(function(geo){
           //     console.log(geo);

@@ -2,11 +2,24 @@
   <div class="row-fluid radio">
     <div class="map-area col-lg-9">
       <div class="map" id="map">
-
       </div>
     </div>
     <div class="info-area col-lg-3">
-      {{vm.text}}
+      <div class="info-area-box">
+        <div class="search-artist">
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1"> <span class="glyphicon glyphicon-search"></span></span>
+            <input type="text" class="form-control" placeholder="Search artist..." aria-describedby="basic-addon1">
+          </div>
+        </div>
+        <div class="top-list">
+          <ul class="list-group">
+           <li class="list-group-item" ng-repeat="item in vm.items">
+             {{item.name}}
+           </li>
+         </ul>
+        </div>
+      </div>
     </div>
 
   </div>

@@ -140,7 +140,7 @@ angular
              setTimeout(function() {
                  // Your code here
                 vm.isLoaded = true;
-             }, 23500);
+             }, 22500);
 
             // console.log(topList);
              for(var i = 0; i < topList.length; i++) {

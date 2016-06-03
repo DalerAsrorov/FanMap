@@ -65,7 +65,7 @@ nav.navbar {
 }
 
 .artist-box-image {
-  width: 320;
+  width: 320px;
   height: 300px;
   display: block;
   float: none;
@@ -74,8 +74,8 @@ nav.navbar {
 
 .list-group-artists {
   overflow: auto;
-  height: 60%;
-  max-height: 740px;
+  height: 600px;
+  max-height: 600px;
 }
 
 .top-list-header {

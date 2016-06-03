@@ -77,3 +77,16 @@ nav.navbar {
   height: 780px;
   max-height: 780px;
 }
+
+.top-list-header {
+  text-align: center;
+}
+
+.loader-wrapper {
+  text-align: center;
+  margin-top: 150px;
+}
+
+.loader-wrapper .text {
+  color: #7abfd8;
+}

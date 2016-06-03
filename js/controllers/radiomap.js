@@ -4,7 +4,7 @@ angular
     var vm = this;
     var cont = [];
     vm.topList = [];
-    vm.text = "Some random text";
+    vm.isLoaded = false;
 
     displayMap();
     // display map on the page
@@ -148,94 +148,11 @@ angular
                       return item.name;
                   });
                   vm.topList = uniqueList;
-                  // console.log(vm.topList);
-                  //console.log(response.data.artist);
                 });
-
 
                topList[i].place = i + 1;
              }
-
-
            }
-
-
-
-          // Geolocation.getGeo('United States').then(function(geo){
-          //     console.log(geo);
-          // })
-
-
-          // // 1. create array of points with different attributes
-          // var points = [
-          //    point = {
-          //      lineAt: {}, // object
-          //      location: {} // new Point({lat, lon})
-          //      markerSymbol: {} // new SimpleMarkerSymbol({[], {[]}})
-          //    },
-          //    point = {
-          //
-          //    },
-          //    // ...
-          //  ];
-
-
-
-          //  // 2. create array of graphics
-          //  var pointGraphics = [];
-          //  pointGraphics.push(new Graphic(
-          //    geometry: location,
-          //    symbol: markerSymbol,
-          //    attributes: lineAtt,
-          //    popupTemplate: new PopupTemplate({
-          //      title: "{Name}",
-          //      content: "{*}"
-          //    })
-          //  ))
-           //
-          //  // 3. Pass graphics to the view
-          //  // view.graphics.addMany(pointGraphics);
-           //
-          //  /**********************
-          //   * Create a point graphic
-          //   **********************/
-           //
-          //  // Create an object for storing attributes related to the line
-          //  var lineAtt = {
-          //    Name: "Keystone Pipeline",
-          //    Owner: "TransCanada",
-          //    Length: "3,456 km"
-          //  };
-           //
-          //  // First create a point geometry (this is the location of the Titanic)
-          //  var point = new Point({
-          //    longitude: -49.97,
-          //    latitude: 41.73
-          //  });
-           //
-          //  // Create a symbol for drawing the point
-          //  var markerSymbol = new SimpleMarkerSymbol({
-          //    color: [226, 119, 40],
-          //    outline: { // autocasts as new SimpleLineSymbol()
-          //      color: [255, 255, 255],
-          //      width: 4
-          //    }
-          //  });
-           //
-          //  // Create a graphic and add the geometry and symbol to it
-          //  var pointGraphic = new Graphic({
-          //    geometry: point,
-          //    symbol: markerSymbol,
-          //    attributes: lineAtt,
-          //    popupTemplate: new PopupTemplate({
-          //      title: "{Name}",
-          //      content: "{*}"
-          //    })
-          //  });
-           //
-           //
-          //  // Add the graphics to the view's graphics layer
-          //  view.graphics.addMany([pointGraphic, polylineGraphic, polygonGraphic]);
          });
 
     }

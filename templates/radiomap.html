@@ -13,13 +13,13 @@
           </div>
         </div>
         <div class="top-list">
-          <div class="top-list-loader" ng-if="!vm.isLoaded">
+          <div class="top-list-loader" ng-show="!vm.isLoaded">
             <div class="loader-wrapper">
-                <h1 class="text"> Loading artists... </h1>
+                <h1 class="text"> Calculating. Please wait... </h1>
                 <img src="../../img/loader.gif" alt="" />
             </div>
           </div>
-          <div class="top-list-wrapper" ng-if="vm.isLoaded">
+          <div class="top-list-wrapper" ng-show="vm.isLoaded">
               <div class="top-list-header">
                 <h1>World's Top Artists</h1>
               </div>

@@ -74,8 +74,8 @@ nav.navbar {
 
 .list-group-artists {
   overflow: auto;
-  height: 780px;
-  max-height: 780px;
+  height: 60%;
+  max-height: 740px;
 }
 
 .top-list-header {

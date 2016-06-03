@@ -111,6 +111,7 @@ angular
             ]
            }
 
+           var counter = 0;
            function getTop(array, index) {
              var counter = 0;
              var ranks = [];
@@ -135,6 +136,12 @@ angular
              var ending = "&api_key=b618453443ef733c126b9d88855f9702&format=json";
 
              var newTop = [];
+
+             setTimeout(function() {
+                 // Your code here
+                vm.isLoaded = true;
+             }, 23500);
+
             // console.log(topList);
              for(var i = 0; i < topList.length; i++) {
                var name = topList[i].artist;
@@ -148,6 +155,12 @@ angular
                       return item.name;
                   });
                   vm.topList = uniqueList;
+                  counter++;
+
+                  //if(counter >= 10800)
+
+
+                  console.log(counter);
                 });
 
                topList[i].place = i + 1;

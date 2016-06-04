@@ -51,16 +51,29 @@ angular
              })
            }
 
+
+           var go = function() {
+             console.log('here');
+           }
+
            for(var i = 0; i < topCountryArtists.length; i++) {
              extractPromises(i);
            }
 
+
+           test = function(name) {
+             var str = name.toString()
+             console.log(str);
+             console.log('here');
+           }
+
+
            function plot(data) {
               var lineAtt = {
-                "Country": data.country,
-                "1st": data.topartists.artist[0].name,
-                "2nd": data.topartists.artist[1].name,
-                "3rd":data.topartists.artist[2].name
+                "<b>Country</b>": data.country,
+                "<b>1st</b>": "<button class='btn btn-link' onclick=test(\'" + data.topartists.artist[0].name + "\')>" + data.topartists.artist[0].name + "</button>",
+                "<b>2nd</b>":  "<button class='btn btn-link'  onclick='test()'>" + data.topartists.artist[1].name + "</button>",
+                "<b>3rd</b>": "<button class='btn btn-link'  onclick='test()'>" + data.topartists.artist[2].name + "</button>"
               };
 
               var point = new Point({
@@ -99,16 +112,7 @@ angular
             var topList = getTop(container, 10);
 
             vm.topList = topList;
-            console.log(vm.topList);
-            //console.log(data);
-            vm.items = [
-              {
-                name: 'Daler'
-              },
-              {
-                 name: 'Asrorov'
-              }
-            ]
+
            }
 
            var counter = 0;
@@ -140,7 +144,7 @@ angular
              setTimeout(function() {
                  // Your code here
                 vm.isLoaded = true;
-             }, 22500);
+             }, 23100);
 
             // console.log(topList);
              for(var i = 0; i < topList.length; i++) {
@@ -148,7 +152,6 @@ angular
               // console.log(name);
                $http.get(base + name + ending)
                 .then(function(response) {
-                  console.log(response.data.artist.image[0]['#text']);
                   newTop.push(response.data.artist);
                   //vm.topList = newTop;
                   var uniqueList = _.uniq(newTop, function(item, key, a) {
@@ -156,11 +159,6 @@ angular
                   });
                   vm.topList = uniqueList;
                   counter++;
-
-                  //if(counter >= 10800)
-
-
-                  console.log(counter);
                 });
 
                topList[i].place = i + 1;

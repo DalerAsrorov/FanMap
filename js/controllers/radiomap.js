@@ -7,7 +7,8 @@ angular
     vm.isLoaded = false;
 
     displayMap();
-    // display map on the page
+    displayTop();
+
     function displayMap() {
       require([
            "esri/Map",
@@ -108,64 +109,22 @@ angular
              container.push(data.topartists.artist[1].name);
              container.push(data.topartists.artist[2].name);
 
-
-            var topList = getTop(container, 10);
-
-            vm.topList = topList;
-
-           }
-
-           var counter = 0;
-           function getTop(array, index) {
-             var counter = 0;
-             var ranks = [];
-
-             for(var i = 0; i < array.length; i++) {
-               var first = array[i];
-               for(var j = 0; j < array.length; j++) {
-                 if(i !== j && first === array[j]) {
-                   counter++;
-                 }
-               }
-               ranks.push({
-                 "artist": first,
-                 "count": counter
-               })
-             }
-
-             var list = _.sortBy(ranks, function(o) { return o.count; });
-             var topList = list.reverse().slice(0, index + 1)
-
-             var base = "http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist="; // + artist
-             var ending = "&api_key=b618453443ef733c126b9d88855f9702&format=json";
-
-             var newTop = [];
-
-             setTimeout(function() {
-                 // Your code here
-                vm.isLoaded = true;
-             }, 23100);
-
-            // console.log(topList);
-             for(var i = 0; i < topList.length; i++) {
-               var name = topList[i].artist;
-              // console.log(name);
-               $http.get(base + name + ending)
-                .then(function(response) {
-                  newTop.push(response.data.artist);
-                  //vm.topList = newTop;
-                  var uniqueList = _.uniq(newTop, function(item, key, a) {
-                      return item.name;
-                  });
-                  vm.topList = uniqueList;
-                  counter++;
-                });
-
-               topList[i].place = i + 1;
-             }
            }
          });
+    }
 
+    function displayTop() {
+        $http.get('/api/lastfm/top/20').then(function(response, err) {
+          if(!err) {
+            if(response.status === 200) {
+                vm.topList = response.data.artists.artist;
+                vm.isLoaded = true;
+                console.log(vm.topList);
+            } else {
+              console.log('Could not find data.');
+            }
+          }
+        });
     }
 
   })

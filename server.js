@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 // var twitter = require('./server/app/twitter');
+var lastfm = require('./server/app/lastfm');
 var bodyParser = require('body-parser');
 var util = require('util'),
     twitter = require('twitter');
@@ -24,20 +25,29 @@ app.use(bodyParser.json());
 
 app.use(express.static(__dirname + '/'));
 
+app.get('/api/lastfm/top/:limit', function(req, res) {
+  var limit = req.params.limit;
+  lastfm.getTopArtists(limit, function(result) {
+     return res.send(result);
+  });
+});
+
+app.get('/api/lastfm/artist/:artist', function(req, res) {
+  var artist = req.params.artist;
+  console.log(artist);
+  lastfm.getArtistInfo(artist, function(result) {
+    return res.send(result);
+  });
+});
+
 app.get('/api/twitter/:name?', function (req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   var name = req.params.name;
-  //console.log(twitter.getUser(name));
-  //Callback functions
 
-  console.log('before route...');
   var route = '/users/lookup.json?screen_name=' + name + ',dump';
   twit.get(route, {}, function(something, data) {
-    console.log(data);
     return res.send(data);
   });
-
-  //return res.send("test");
 });
 
 var server = app.listen(9000, function () {

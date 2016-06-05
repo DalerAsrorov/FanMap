@@ -83,9 +83,9 @@ angular
               });
 
               var markerSymbol = new SimpleMarkerSymbol({
-                  color: [226, 119, 40],
+                  color: [226, 0, 0],
                   outline: { // autocasts as new SimpleLineSymbol()
-                    color: [255, 255, 255],
+                    color: [255, 120, 120],
                     width: 4
                   }
               });

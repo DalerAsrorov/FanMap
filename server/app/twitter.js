@@ -22,6 +22,14 @@ module.exports = {
     twit.get('search/tweets', {q: q, lang: 'en', count: 100, result_type: 'mixed'}, function(error, tweets, response) {
       callback(tweets);
     });
+  },
+
+  streamData: function(q, callback) {
+    twit.stream('statuses/samples', function(stream) {
+    	stream.on('tweet', function(tweet) {
+    	   console.log(tweet); // suggestion api https://github.com/ttezel/twit
+    	});
+    });
   }
 
 }

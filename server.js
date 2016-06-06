@@ -59,12 +59,21 @@ app.get('/api/twitter/tweets/:query', function(req, res) {
   });
 });
 
+app.get('/api/twitter/stream/:query', function(req, res) {
+  var query = req.params.query;
+  twitter_api.streamData(query, function(result) {
+    //return res.send(result);
+  });
+});
+
 app.get('/api/sentiment/:artist', function(req, res) {
   var artist = req.params.artist;
   sentiment.getAnalysis(artist, function(result) {
     // return res.send(result);
   });
 });
+
+
 
 var server = app.listen(9000, function () {
   var host = server.address().address

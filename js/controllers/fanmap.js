@@ -25,7 +25,9 @@ angular
         if(err) {
           console.log('error', err);
         } else {
+          console.log(response.data.artist);
           vm.artistInfo = response.data.artist;
+          vm.similar = response.data.artist.similar.artist;
         }
       });
     }

@@ -16,8 +16,14 @@
        <p class="bio-text" ng-bind-html="vm.artistInfo.bio.summary">
        </p>
      </div>
-     <div class="">
-
+     <div class="related-artists">
+       <h4>Similar artists</h4>
+       <div class="grid" ng-repeat="item in vm.similar">
+         <img ng-src="{{item.image[3]['#text']}}" alt="item.name" class="grid-image"/>
+         <div class="related-caption">
+           {{item.name}}
+         </div>
+       </div>
      </div>
    </div>
  </div>

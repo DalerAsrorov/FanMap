@@ -8,6 +8,7 @@ html, body {
    padding: 0;
    margin: 0;
    height: 100%;
+   background: lightgrey;
  }
 
  #map {
@@ -118,4 +119,22 @@ nav.navbar {
 
 .bio {
   padding: 15px;
+}
+
+.bio-text {
+  margin: 0;
+}
+
+.related-artists {
+    margin-left: 10px;
+}
+
+.related-artists .grid {
+  float: left;
+  margin: 5px;
+}
+
+.grid-image {
+  width: 170px;
+  height: 200px;
 }

@@ -90,3 +90,28 @@ nav.navbar {
 .loader-wrapper .text {
   color: #7abfd8;
 }
+
+.container-fluid.fanmap {
+  margin-top: 30px;
+}
+
+.fanmap-artist-box-image {
+  width: 100%;
+  height: auto;
+}
+
+.artist-info-container {
+  border: 1px solid black;
+}
+
+.artist-name-container h1 {
+  background: white;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.fanmap-info-container {
+  margin: 0;
+  padding: 0;
+}

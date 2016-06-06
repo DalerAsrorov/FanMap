@@ -14,9 +14,14 @@ module.exports = {
       if(err) {
         console.log(err);
       } else {
-        console.log("DATADATADATADATADADTA");
         return data;
       }
     });
+  },
+  getTweets: function(q, callback) {
+    twit.get('search/tweets', {q: q, lang: 'en', count: 100, result_type: 'mixed'}, function(error, tweets, response) {
+      callback(tweets);
+    });
   }
-};
+
+}

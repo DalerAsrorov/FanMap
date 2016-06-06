@@ -7,16 +7,27 @@ angular
 
     var url = '/api/twitter/';
 
+    getArtistInfo(artist);
 
-    $http.get('/api/twitter/greenday').then(function(response, err) {
-      if(err) {
-        console.log('error', err);
-      } else {
-        console.log(response);
-      }
-    });
+    // $http.get('/api/twitter/greenday').then(function(response, err) {
+    //   if(err) {
+    //     console.log('error', err);
+    //   } else {
+    //     console.log(response);
+    //   }
+    // });
 
     console.log('reached');
     var url = '/api/twitter/';
+
+    function getArtistInfo(artist) {
+      $http.get('/api/lastfm/artist/' + artist).then(function(response, err) {
+        if(err) {
+          console.log('error', err);
+        } else {
+          vm.artistInfo = response.data.artist;
+        }
+      });
+    }
 
   })

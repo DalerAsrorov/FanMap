@@ -3,6 +3,7 @@ var app = express();
 // var twitter = require('./server/app/twitter');
 var lastfm = require('./server/app/lastfm');
 var sentiment = require('./server/app/sentiment');
+var twitter_api = require('./server/app/twitter');
 var bodyParser = require('body-parser');
 var util = require('util'),
     twitter = require('twitter');
@@ -48,6 +49,13 @@ app.get('/api/twitter/:name?', function (req, res) {
   var route = '/users/lookup.json?screen_name=' + name + ',dump';
   twit.get(route, {}, function(something, data) {
     return res.send(data);
+  });
+});
+
+app.get('/api/twitter/tweets/:query', function(req, res) {
+  var query = req.params.query;
+  twitter_api.getTweets(query, function(result) {
+    return res.send(result);
   });
 });
 

@@ -29,7 +29,7 @@
                </li> -->
                <li class="list-group-item" ng-repeat="item in vm.topList">
                  <div class="artist-box">
-                   <img ng-src=" {{  item.image[3]['#text']}}" class="artist-box-image" alt="" />
+                   <img ng-src=" {{  item.image[3]['#text']}}" class="artist-box-image" alt="{{  item.image[3]['#text']}}" />
                    <div class="artist-box-info">
                      <h1>{{item.name}}</h1>
                      <div>{{item.image[0].text}}</div>

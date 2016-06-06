@@ -1,7 +1,7 @@
 <div class="container-fluid fanmap">
   <p>Resize the browser window to see the effect.</p>
  <div class="row">
-   <div class="fanmap-info-container col-xs-5 col-md-4" style="background-color:red;">
+   <div class="fanmap-info-container col-xs-5 col-md-4">
      <div class="artist-info-container">
        <div class="artist-image-container">
          <img ng-src="{{vm.artistInfo.image[3]['#text']}}" class="fanmap-artist-box-image" alt="" />
@@ -11,7 +11,12 @@
        </div>
      </div>
    </div>
-   <div class="col-xs-7 col-md-8" style="background-color:lavender;">.col-xs-3 .col-md-5</div>
+   <div class="col-xs-7 col-md-8" style="background-color:lavender;">
+     <div class="bio">
+       <p class="bio-text" ng-bind-html="vm.artistInfo.bio.summary">
+       </p>
+     </div>
+   </div>
  </div>
  <div class="row">
    <div class="col-xs-6 col-md-10" style="background-color:lavenderblush;">.col-xs-6 .col-md-10</div>

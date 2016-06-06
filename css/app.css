@@ -97,7 +97,7 @@ nav.navbar {
 
 .fanmap-artist-box-image {
   width: 100%;
-  height: auto;
+  height: 340px;
 }
 
 .artist-info-container {
@@ -114,4 +114,8 @@ nav.navbar {
 .fanmap-info-container {
   margin: 0;
   padding: 0;
+}
+
+.bio {
+  padding: 15px;
 }

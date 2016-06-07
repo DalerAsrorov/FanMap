@@ -33,9 +33,10 @@ module.exports = {
           var statsMap = matchWords(hugeString);
           var sortedStats = sortMap(statsMap);
           var cutSortedStats = sortedStats.slice(sortedStats.length - index);
-          var transformObj = transformToJSON(cutSortedStats);
+          var transformArray = transformToJSON(cutSortedStats);
           var json = {
             "query" : {
+              "q": q,
               "index" : index,
               "description": "Get top [index] keywords. "
             },
@@ -43,19 +44,46 @@ module.exports = {
               "utc": new Date().getTime(),
               "local_formatted":  new Date().toLocaleString()
             },
-            "data" : {transformObj}
+            "data" : {
+              map: transformArray,
+              totalOccurencesCount: getTotalCount(transformArray)
+            }
           }
           callback(json);
         }
       }
 
+      function getTotalCount(array) {
+        var total = 0;
+        for(var i = 0; i < array.length; i++) {
+          total += array[i]['occurenceValue'];
+        }
+
+        return total;
+      }
+
+      function getTotalCountInit(array) {
+        var total = 0;
+        for(var i = 0; i < array.length; i++) {
+          total += array[i][1];
+        }
+        return total;
+      }
+
       function transformToJSON(array) {
         var newArray = [];
+        var totalCount = getTotalCountInit(array);
+
         for(var i = 0; i < array.length; i++) {
           var word = array[i][0].toString();
           var count = array[i][1];
-          var obj = {};
-          obj[word] = count;
+          var percent = (count * 100) / totalCount;
+
+          var obj = {
+            "word" : word,
+            "occurenceValue": count,
+            "percent": percent.toFixed(3)
+          };
           newArray.push(obj);
         }
         newArray = newArray.reverse();

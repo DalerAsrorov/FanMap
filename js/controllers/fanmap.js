@@ -7,8 +7,6 @@ angular
 
     var url = '/api/twitter/';
 
-    getArtistInfo(artist);
-
     // $http.get('/api/twitter/greenday').then(function(response, err) {
     //   if(err) {
     //     console.log('error', err);
@@ -17,7 +15,9 @@ angular
     //   }
     // });
 
-    console.log('reached');
+    getArtistInfo(artist);
+    drawKeywords(artist, 30);
+
     var url = '/api/twitter/';
 
     function getArtistInfo(artist) {
@@ -28,6 +28,16 @@ angular
           console.log(response.data.artist);
           vm.artistInfo = response.data.artist;
           vm.similar = response.data.artist.similar.artist;
+        }
+      });
+    }
+
+    function drawKeywords(artist, index) {
+      $http.get('/api/sentiment/keywords/' + artist + '/' + index).then(function(response, err) {
+        if(err)
+          console.log("Error:", err);
+        else {
+          console.log(response);
         }
       });
     }

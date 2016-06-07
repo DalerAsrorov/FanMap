@@ -8,7 +8,6 @@ html, body {
    padding: 0;
    margin: 0;
    height: 100%;
-   background: lightgrey;
  }
 
  #map {
@@ -132,6 +131,9 @@ nav.navbar {
 .related-artists .grid {
   float: left;
   margin: 5px;
+  background: white;
+  text-align: center;
+  font-weight: 800;
 }
 
 .grid-image {

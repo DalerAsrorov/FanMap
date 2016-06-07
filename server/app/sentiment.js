@@ -34,6 +34,8 @@ module.exports = {
           var sortedStats = sortMap(statsMap);
           var cutSortedStats = sortedStats.slice(sortedStats.length - index);
           var transformArray = transformToJSON(cutSortedStats);
+          var d3Cloud = transformToD3(cutSortedStats);
+
           var json = {
             "query" : {
               "q": q,
@@ -46,11 +48,31 @@ module.exports = {
             },
             "data" : {
               map: transformArray,
+              d3Cloud: d3Cloud,
               totalOccurencesCount: getTotalCount(transformArray)
             }
           }
           callback(json);
         }
+      }
+
+      function transformToD3(array) {
+        var newArray = [];
+        var totalCount = getTotalCountInit(array);
+
+        for(var i = 0; i < array.length; i++) {
+          var word = array[i][0].toString();
+          var count = array[i][1];
+          var percent = (count * 100) / totalCount;
+
+          var obj = {
+            "text" : word,
+            "size": count
+          };
+          newArray.push(obj);
+        }
+        newArray = newArray.reverse();
+        return newArray;
       }
 
       function getTotalCount(array) {

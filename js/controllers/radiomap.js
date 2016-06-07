@@ -52,7 +52,6 @@ angular
              })
            }
 
-
            var go = function() {
              console.log('here');
            }
@@ -60,7 +59,6 @@ angular
            for(var i = 0; i < topCountryArtists.length; i++) {
              extractPromises(i);
            }
-
 
            test = function(name) {
              var str = name.toString()

@@ -66,10 +66,11 @@ app.get('/api/twitter/stream/:query', function(req, res) {
   });
 });
 
-app.get('/api/sentiment/:artist', function(req, res) {
+app.get('/api/sentiment/keywords/:artist/:index', function(req, res) {
   var artist = req.params.artist;
-  sentiment.getAnalysis(artist, function(result) {
-    // return res.send(result);
+  var index = req.params.index;
+  sentiment.getKeywordsAnalysis(artist, index, function(result) {
+    return res.send(result);
   });
 });
 

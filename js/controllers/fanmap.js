@@ -126,6 +126,7 @@ angular
       $(document).ready(function() {
         //console.log(words);
         $("#wordcloud").jQCloud(words, {
+          autoResize: true,
           fontSize: {
             from: 0.1,
             to: 0.02

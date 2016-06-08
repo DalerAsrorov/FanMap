@@ -63,11 +63,11 @@ module.exports = {
         for(var i = 0; i < array.length; i++) {
           var word = array[i][0].toString();
           var count = array[i][1];
-          var percent = (count * 100) / totalCount;
+          var weight = (count * 100) / totalCount;
 
           var obj = {
             "text" : word,
-            "size": count
+            "weight": weight * 3
           };
           newArray.push(obj);
         }

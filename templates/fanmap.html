@@ -2,8 +2,8 @@
   <p>Resize the browser window to see the effect.</p>
  <div class="row">
    <div class="fanmap-info-container col-xs-12 col-sm-12 col-md-12 col-lg-4">
-     <div class="artist-info-container">
-       <div class="artist-image-container">
+     <div class="artist-info-container custom-box-shadow custom-border-radius">
+       <div class="artist-image-container custom-box-shadow custom-border-radius">
          <img ng-src="{{vm.artistInfo.image[3]['#text']}}" class="fanmap-artist-box-image" alt="" />
        </div>
        <div class="artist-name-container">
@@ -11,17 +11,19 @@
        </div>
      </div>
    </div>
-   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8" style="background-color:lavender;">
-     <div class="bio">
-       <p class="bio-text" ng-bind-html="vm.artistInfo.bio.summary">
-       </p>
-     </div>
-     <div class="related-artists">
-       <h4>Similar artists</h4>
-       <div class="grid" ng-repeat="item in vm.similar">
-         <img ng-src="{{item.image[3]['#text']}}" alt="item.name" class="grid-image"/>
-         <div class="related-caption">
-           {{item.name}}
+   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 fanmap-bio-container">
+     <div class="artist-bio-container custom-box-shadow custom-border-radius">
+       <div class="bio">
+         <p class="bio-text" ng-bind-html="vm.artistInfo.bio.summary">
+         </p>
+       </div>
+       <div class="related-artists">
+         <h4>Similar artists</h4>
+         <div class="grid" ng-repeat="item in vm.similar">
+           <img ng-src="{{item.image[3]['#text']}}" alt="item.name" class="grid-image"/>
+           <div class="related-caption">
+             {{item.name}}
+           </div>
          </div>
        </div>
      </div>
@@ -35,7 +37,11 @@
    <div class="col-xs-6 col-md-2" style="background-color:lightgrey;">.col-xs-6 .col-md-2</div>
  </div>
  <div class="row" style="background-color:lightcyan;">
-   <div class="col-xs-6">.col-xs-6</div>
-   <div class="col-xs-6">.col-xs-6</div>
+   <div class="col-xs-6 col-lg-12 fanmap-container" >
+     <div id="map-canvas" class="map fanmap">
+      <!-- <div id="heatLayer"></div> -->
+     </div>
+   </div>
+   <div class="col-xs-6 col-lg-12">.col-xs-6</div>
  </div>
 </div>

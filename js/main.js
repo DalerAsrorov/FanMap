@@ -46,6 +46,11 @@ angular
           }
         }
       })
+      .when('/about', {
+        templateUrl: '/templates/about.html',
+        controller: 'AboutCtrl',
+        controllerAs: 'vm'
+      })
       .otherwise({
         redirectTo: "/radiomap"
       });

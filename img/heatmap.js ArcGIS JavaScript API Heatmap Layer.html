@@ -1,0 +1,351 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0039)http://esri.github.io/heatmap-layer-js/ -->
+<html class="dj_webkit dj_chrome dj_contentbox"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <meta http-equiv="X-UA-Compatible" content="IE=7,IE=9">
+        <!--The viewport meta tag is used to improve the presentation and behavior
+        of the samples on iOS devices-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>heatmap.js ArcGIS JavaScript API Heatmap Layer</title>
+        <link rel="shortcut icon" type="image/png" href="http://www.patrick-wied.at/img/favicon.png">
+        <link rel="stylesheet" type="text/css" href="./heatmap.js ArcGIS JavaScript API Heatmap Layer_files/claro.css">
+		<link rel="stylesheet" type="text/css" href="./heatmap.js ArcGIS JavaScript API Heatmap Layer_files/esri.css">
+        <style>
+            body, html {
+                margin:0;
+                padding:0;
+                font-family:Arial;
+            }
+            h1 {
+                margin-bottom:10px;
+            }
+            h2 {
+                margin-top:0;
+            }
+            #main {
+                position:relative;
+                width:1020px;
+                padding:20px;
+                margin:auto;
+            }
+            #heatmapArea {
+                position:relative;
+                float:left;
+                width:800px;
+                height:600px;
+                border:1px dashed black;
+            }
+            #configArea {
+                position:relative;
+                float:left;
+                width:200px;
+                padding:15px;
+                padding-top:0;
+                padding-right:0;
+            }
+            .btn {
+                margin-top:25px;
+                padding:10px 20px 10px 20px;
+                -moz-border-radius:15px;
+                -o-border-radius:15px;
+                -webkit-border-radius:15px;
+                border-radius:15px;
+                border:2px solid black;
+                cursor:pointer;
+                color:white;
+                background-color:black;
+            }
+            #map {
+                width:800px;
+                height:600px;
+            }
+            #title {
+                font-family:arial;
+                display:inline-block;
+                position:absolute;
+                font-weight:bold;
+                font-size:21px;
+                line-height:28px;
+                top:20px;
+                right:20px;
+                z-index:99;
+                background:rgba(255, 255, 255, 0.65);
+                padding:10px 20px;
+                -webkit-border-radius: 3px;
+                border-radius: 3px;
+                text-shadow:1px 1px 1px #FFFFFF -webkit-box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.1);
+                box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.1);
+            }
+        </style>
+        <link rel="stylesheet" type="text/css" href="./heatmap.js ArcGIS JavaScript API Heatmap Layer_files/Popup.css">
+    </head>
+    <body class="claro">
+        <div id="main">
+            	<h1>ArcGIS JavaScript API Heatmap Overlay</h1>
+	<a href="http://www.arcgis.com/home/item.html?id=3a6d8158252e4b96a8ecfb8b912df78d">Download code</a>.
+            <br>
+            <br>
+            <div id="heatmapArea">
+                <div id="heatLayer" widgetid="heatLayer" style="position: absolute; display: none; width: 800px; height: 600px;"><canvas class="heatmap-canvas" width="800" height="600" style="position: absolute; left: 0px; top: 0px;"></canvas></div>
+                <div id="title">San Francisco 311 incidents</div>
+                <div id="map" class="map" data-basemap="streets" data-zoom="18" data-scale="2256.994353" data-loaded=""><div id="map_root" class="container" style="width: 800px; height: 600px; direction: ltr;"><div id="map_container" class="container" style="position: absolute; cursor: default;"><div id="map_layers" class="layersDiv" style="left: 0px; top: 0px;"><div id="map_layer0" style="position: absolute; width: 800px; height: 600px; overflow: visible; transform: translate(0px, 0px); display: block;"><div style="position: absolute; width: 800px; height: 600px; overflow: visible; transition: -webkit-transform 500ms ease;"><img id="map_layer0_tile_18_0_0" class="layerTile" src="./heatmap.js ArcGIS JavaScript API Heatmap Layer_files/41946" style="width: 256px; height: 256px; visibility: visible; transform: translate(-137px, -213px);"><img id="map_layer0_tile_18_1_0" class="layerTile" src="./heatmap.js ArcGIS JavaScript API Heatmap Layer_files/41946(1)" style="width: 256px; height: 256px; visibility: visible; transform: translate(-137px, 43px);"><img id="map_layer0_tile_18_2_0" class="layerTile" src="./heatmap.js ArcGIS JavaScript API Heatmap Layer_files/41946(2)" style="width: 256px; height: 256px; visibility: visible; transform: translate(-137px, 299px);"><img id="map_layer0_tile_18_3_0" class="layerTile" src="./heatmap.js ArcGIS JavaScript API Heatmap Layer_files/41946(3)" style="width: 256px; height: 256px; visibility: visible; transform: translate(-137px, 555px);"><img id="map_layer0_tile_18_0_1" class="layerTile" src="./heatmap.js ArcGIS JavaScript API Heatmap Layer_files/41947" style="width: 256px; height: 256px; visibility: visible; transform: translate(119px, -213px);"><img id="map_layer0_tile_18_1_1" class="layerTile" src="./heatmap.js ArcGIS JavaScript API Heatmap Layer_files/41947(1)" style="width: 256px; height: 256px; visibility: visible; transform: translate(119px, 43px);"><img id="map_layer0_tile_18_2_1" class="layerTile" src="./heatmap.js ArcGIS JavaScript API Heatmap Layer_files/41947(2)" style="width: 256px; height: 256px; visibility: visible; transform: translate(119px, 299px);"><img id="map_layer0_tile_18_3_1" class="layerTile" src="./heatmap.js ArcGIS JavaScript API Heatmap Layer_files/41947(3)" style="width: 256px; height: 256px; visibility: visible; transform: translate(119px, 555px);"><img id="map_layer0_tile_18_0_2" class="layerTile" src="./heatmap.js ArcGIS JavaScript API Heatmap Layer_files/41948" style="width: 256px; height: 256px; visibility: visible; transform: translate(375px, -213px);"><img id="map_layer0_tile_18_1_2" class="layerTile" src="./heatmap.js ArcGIS JavaScript API Heatmap Layer_files/41948(1)" style="width: 256px; height: 256px; visibility: visible; transform: translate(375px, 43px);"><img id="map_layer0_tile_18_2_2" class="layerTile" src="./heatmap.js ArcGIS JavaScript API Heatmap Layer_files/41948(2)" style="width: 256px; height: 256px; visibility: visible; transform: translate(375px, 299px);"><img id="map_layer0_tile_18_3_2" class="layerTile" src="./heatmap.js ArcGIS JavaScript API Heatmap Layer_files/41948(3)" style="width: 256px; height: 256px; visibility: visible; transform: translate(375px, 555px);"><img id="map_layer0_tile_18_0_3" class="layerTile" src="./heatmap.js ArcGIS JavaScript API Heatmap Layer_files/41949" style="width: 256px; height: 256px; visibility: visible; transform: translate(631px, -213px);"><img id="map_layer0_tile_18_1_3" class="layerTile" src="./heatmap.js ArcGIS JavaScript API Heatmap Layer_files/41949(1)" style="width: 256px; height: 256px; visibility: visible; transform: translate(631px, 43px);"><img id="map_layer0_tile_18_2_3" class="layerTile" src="./heatmap.js ArcGIS JavaScript API Heatmap Layer_files/41949(2)" style="width: 256px; height: 256px; visibility: visible; transform: translate(631px, 299px);"><img id="map_layer0_tile_18_3_3" class="layerTile" src="./heatmap.js ArcGIS JavaScript API Heatmap Layer_files/41949(3)" style="width: 256px; height: 256px; visibility: visible; transform: translate(631px, 555px);"></div></div><div id="map_heatLayer" style="position: absolute; width: 800px; height: 600px; overflow: visible; opacity: 0.85; transform: translate(0px, 0px); display: block;"><img id="map_heatLayer_1465404262485" src="data:image/png;base64,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BAgQIECAAAECowICyKig9QkQIECAAAECBAgQCAsIIGEqCxIgQIAAAQIECBAgMCoggIwKWp8AAQIECBAgQIAAgbCAABKmsiABAgQIECBAgAABAqMCAsiooPUJECBAgAABAgQIEAgLCCBhKgsSIECAAAECBAgQIDAqIICMClqfAAECBAgQIECAAIGwgAASprIgAQIECBAgQIAAAQKjAgLIqKD1CRAgQIAAAQIECBAICwggYSoLEiBAgAABAgQIECAwKiCAjApanwABAgQIECBAgACBsIAAEqayIAECBAgQIECAAAECowICyKig9QkQIECAAAECBAgQCAsIIGEqCxIgQIAAAQIECBAgMCoggIwKWp8AAQIECBAgQIAAgbCAABKmsiABAgQIECBAgAABAqMCAsiooPUJECBAgAABAgQIEAgLCCBhKgsSIECAAAECBAgQIDAqIICMClqfAAECBAgQIECAAIGwgAASprIgAQIECBAgQIAAAQKjAgLIqKD1CRAgQIAAAQIECBAICwggYSoLEiBAgAABAgQIECAwKiCAjApanwABAgQIECBAgACBsIAAEqayIAECBAgQIECAAAECowICyKig9QkQIECAAAECBAgQCAsIIGEqCxIgQIAAAQIECBAgMCoggIwKWp8AAQIECBAgQIAAgbCAABKmsiABAgQIECBAgAABAqMCAsiooPUJECBAgAABAgQIEAgLCCBhKgsSIECAAAECBAgQIDAqIICMClqfAAECBAgQIECAAIGwgAASprIgAQIECBAgQIAAAQKjAgLIqKD1CRAgQIAAAQIECBAICwggYSoLEiBAgAABAgQIECAwKiCAjApanwABAgQIECBAgACBsIAAEqayIAECBAgQIECAAIGrCPy38zr+P//99B50dvzT3dY+AQIECBAgQIAAgTcJ9AaOmtH6QCKA1I6J1wkQIECAAAECBAh8RCAbOkav4TNVkDVhZLTzHzkUGiVAgAABAgQIECDwXIFfwaN0zR69ni9NvTq8dm4QiXb4ucfXnhEgQIAAAQIECBC4hMCP4JG6Tp997Z4KJbu/nRNEZu/EJQ6dThAgQIAAAQIECBC4j0AxeOSu13uv43OVkOPfTwsivR2/z/HUUwIECBAgQIAAAQKXFGgKHpHr9uMykSdeFYLHN9r0IBLZkUseLp0iQIAAAQIECBAgcF+BbPg4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QG43EHWYAAECBAgQIEDgXQK/gsisa/hMGDk3eMzq/LvGgL0lQIAAAQIECBAg8BGBbBgZ7M2a0LHvZLRkM7hjVidAgAABAgQIECBAYJ5AbyBZHziO+yyAzBsFtkSAAAECBAgQIECAQEVAADFECBAgQIAAAQIECBBYJiCALKPWEAECBAgQIECAAAECAogxQIAAAQIECBAgQIDAMgEBZBm1hggQIECAAAECBAgQEECMAQIECBAgQIAAAQIElgkIIMuoNUSAAAECBAgQIECAgABiDBAgQIAAAQIECBAgsExAAFlGrSECBAgQIECAAAECBAQQY4AAAQIECBAgQIAAgWUCAsgyag0RIECAAAECBAgQICCAGAMECBAgQIAAAQIECCwTEECWUWuIAAECBAgQIECAAAEBxBggQIAAAQIECBAgQGCZgACyjFpDBAgQIECAAAECBAgIIMYAAQIECBAgQIAAAQLLBASQZdQaIkCAAAECBAgQIEBAADEGCBAgQIAAAQIECBBYJiCALKPWEAECBAgQIECAAAECAogxQIAAAQIECBAgQIDAMgEBZBm1hggQIECAAAECBAgQEECMAQIECBAgQIAAAQIElgkIIMuoNUSAAAECBAgQIECAgABiDBAgQIAAAQIECBAgsExAAFlGrSECBAgQIECAAAECBAQQY4AAAQIECBAgQIAAgWUCAsgyag0RIECAAAECBAgQICCAGAMECBAgQIAAAQIECCwTEECWUWuIAAECBAgQIECAAAEBxBggQIAAAQIECBAgQGCZgACyjFpDBAgQIECAAAECBAgIIMYAAQIECBAgQIAAAQLLBASQZdQaIkCAAAECBAgQIEBAADEGCBAgQIAAAQIECBBYJiCALKPWEAECBAgQIECAAAECAogxQIAAAQIECBAgQIDAMgEBZBm1hggQIECAAAECBAgQEECMAQIECBAgQIAAAQIElgkIIMuoNUSAAAECBAgQIECAgABiDBAgQIAAAQIECBAgsExAAFlGrSECBAgQIECAAAECBAQQY4AAAQIECBAgQIAAgWUCAsgyag0RIECAAAECBAgQICCAGAMECBAgQIAAAQIECCwTEECWUWuIAAECBAgQIECAAAEBxBggQIAAAQIECBAgQGCZgACyjFpDBAgQIECAAAECBAgIIMYAAQIECBAgQIAAAQLLBASQZdQaIkCAAAECBAgQIEBAADEGCBAgQIAAAQIECBBYJiCALKPWEAECBAgQIECAAAECAogxQIAAAQIECBAgQIDAMgEBZBm1hggQIECAAAECBAgQEECMAQIECBAgQIAAAQIElgkIIMuoNUSAAAECBAgQIECAgABiDBAgQIAAAQIECBAgsExAAFlGrSECBAgQIECAAAECBAQQY4AAAQIECBAgQIAAgWUCAsgyag0RIECAAAECBAgQICCAGAMECBAgQIAAAQIECCwTEECWUWuIAAECBAgQIECAAAEBxBggQIAAAQIECBAgQGCZgACyjFpDBAgQIECAAAECBAgIIMYAAQIECBAgQIAAAQLLBASQZdQaIkCAAAECBAgQIEBAADEGCBAgQIAAAQIECBBYJiCALKPWEAECBAgQIECAAAECAogxQIAAAQIECBAgQIDAMgEBZBm1hggQIECAAAECBAgQEECMAQIECBAgQIAAAQIElgkIIMuoNUSAAAECBAgQIECAgABiDBAgQIAAAQIECBAgsExAAFlGrSECBAgQIECAAAECBAQQY4AAAQIECBAgQIAAgWUCAsgyag0RIECAAAECBAgQICCAGAMECBAgQIAAAQIECCwTEECWUWuIAAECBAgQIECAAAEBxBggQIAAAQIECBAgQGCZgACyjFpDBAgQIECAAAECBAgIIMYAAQIECBAgQIAAAQLLBASQZdQaIkCAAAECBAgQIEBAADEGCBAgQIAAAQIECBBYJiCALKPWEAECBAgQIECAAAECAogxQIAAAQIECBAgQIDAMgEBZBm1hggQIECAAAECBAgQEECMAQIECBAgQIAAAQIElgkIIMuoNUSAAAECBAgQIECAgABiDBAgQIAAAQIECBAgsExAAFlGrSECBAgQIECAAAECBAQQY4AAAQIECBAgQIAAgWUCAsgyag0RIECAAAECBAgQICCAGAMECBAgQIAAAQIECCwTEECWUWuIAAECBAgQIECAAAEBxBggQIAAAQIECBAgQGCZgACyjFpDBAgQIECAAAECBAgIIMYAAQIECBAgQIAAAQLLBASQZdQaIkCAAAECBAgQIEBAADEGCBAgQIAAAQIECBBYJiCALKPWEAECBAgQIECAAAECAogxQIAAAQIECBAgQIDAMgEBZBm1hggQIECAAAECBAgQEECMAQIECBAgQIAAAQIElgkIIMuoNUSAAAECBAgQIECAgABiDBAgQIAAAQIECBAgsExAAFlGrSECBAgQIECAAAECBAQQY4AAAQIECBAgQIAAgWUCAsgyag0RIECAAAECBAgQICCAGAMECBAgQIAAAQIECCwTEECWUWuIAAECBAgQIECAAAEBxBggQIAAAQIECBAgQGCZgACyjFpDBAgQIECAAAECBAgIIMYAAQIECBAgQIAAAQLLBASQZdQaIkCAAAECBAgQIEBAADEGCBAgQIAAAQIECBBYJiCALKPWEAECBAgQIECAAAECAogxQIAAAQIECBAgQIDAMgEBZBm1hggQIECAAAECBAgQEECMAQIECBAgQIAAAQIElgkIIMuoNUSAAAECBAgQIECAgABiDBAgQIAAAQIECBAgsExAAFlGrSECBAgQIECAAAECBAQQY4AAAQIECBAgQIAAgWUCAsgyag0RIECAAAECBAgQICCAGAMECBAgQIAAAQIECCwTEECWUWuIAAECBAgQIECAAAEBxBggQIAAAQIECBAgQGCZgACyjFpDBAgQIECAAAECBAgIIMYAAQIECBAgQIAAAQLLBASQZdQaIkCAAAECBAgQIEBAADEGCBAgQIAAAQIECBBYJiCALKPWEAECBAgQIECAAAECAogxQIAAAQIECBAgQIDAMgEBZBm1hggQIECAAAECBAgQEECMAQIECBAgQIAAAQIElgkIIMuoNUSAAAECBAgQIECAgABiDBAgQIAAAQIECBAgsExAAFlGrSECBAgQIECAAAECBAQQY4AAAQIECBAgQIAAgWUCAsgyag0RIECAAAECBAgQICCAGAMECBAgQIAAAQIECCwTEECWUWuIAAECBAgQIECAAAEBxBggQIAAAQIECBAgQGCZgACyjFpDBAgQIECAAAECBAgIIMYAAQIECBAgQIAAAQLLBASQZdQaIkCAAAECBAgQIEBAADEGCBAgQIAAAQIECBBYJiCALKPWEAECBAgQIECAAAECAogxQIAAAQIECBAgQIDAMgEBZBm1hggQIECAAAECBAgQEECMAQIECBAgQIAAAQIElgkIIMuoNUSAAAECBAgQIECAgABiDBAgQIAAAQIECBAgsExAAFlGrSECBAgQIECAAAECBAQQY4AAAQIECBAgQIAAgWUCAsgyag0RIECAAAECBAgQICCAGAMECBAgQIAAAQIECCwTEECWUWuIAAECBAgQIECAAAEBxBggQIAAAQIECBAgQGCZgACyjFpDBAgQIECAAAECBAgIIMYAAQIECBAgQIAAAQLLBASQZdQaIkCAAAECBAgQIEBAADEGCBAgQIAAAQIECBBYJiCALKPWEAECBAgQIECAAAECAogxQIAAAQIECBAgQIDAMgEBZBm1hggQIECAAAECBAgQEECMAQIECBAgQIAAAQIElgkIIMuoNUSAAAECBAgQIECAgABiDBAgQIAAAQIECBAgsExAAFlGrSECBAgQIECAAAECBAQQY4AAAQIECBAgQIAAgWUCAsgyag0RIECAAAECBAgQICCAGAMECBAgQIAAAQIECCwTEECWUWuIAAECBAgQIECAAAEBxBggQIAAAQIECBAgQGCZgACyjFpDBAgQIECAAAECBAgIIMYAAQIECBAgQIAAAQLLBASQZdQaIkCAAAECBAgQIEBAADEGCBAgQIAAAQIECBBYJiCALKPWEAECBAgQIECAAAECAogxQIAAAQIECBAgQIDAMgEBZBm1hggQIECAAAECBAgQEECMAQIECBAgQIAAAQIElgkIIMuoNUSAAAECBAgQIECAgABiDBAgQIAAAQIECBAgsExAAFlGrSECBAgQIECAAAECBAQQY4AAAQIECBAgQIAAgWUCAsgyag0RIECAAAECBAgQICCAGAMECBAgQIAAAQIECCwTEECWUWuIAAECBAgQIECAAAEBxBggQIAAAQIECBAgQGCZgACyjFpDBAgQIECAAAECBAgIIMYAAQIECBAgQIAAAQLLBASQZdQaIkCAAAECBAgQIEBAADEGCBAgQIAAAQIECBBYJiCALKPWEAECBAgQIECAAAECAogxQIAAAQIECBAgQIDAMgEBZBm1hggQIECAAAECBAgQEECMAQIECBAgQIAAAQIElgkIIMuoNUSAAAECBAgQIECAgABiDBAgQIAAAQIECBAgsExAAFlGrSECBAgQIECAAAECBAQQY4AAAQIECBAgQIAAgWUCAsgyag0RIECAAAECBAgQICCAGAMECBAgQIAAAQIECCwTEECWUWuIAAECBAgQIECAAAEBxBggQIAAAQIECBAgQGCZgACyjFpDBAgQIECAAAECBAgIIMYAAQIECBAgQIAAAQLLBASQZdQaIkCAAAECBAgQIEBAADEGCEwR+G/ne+k//53SvI0QIECAAAEC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ECBAgAABAgEBASSAZBECBAgQIECAAAECBOYICCBzHG2FAAECBAgQIECAAIGAgAASQLIIAQIECBAgQIAAAQJzBASQOY62QoAAAQIECBAgQIBAQEAACSBZhAABAgQIECBAgACBOQICyBxHWyFAgAABAgQIECBAICAggASQLEKAAAECBAgQIECAwBwBAWSOo60QIECAAAECBAgQIBAQEEACSBYhQIAAAQIECBAgQGCOgAAyx9FWCBAgQIAAAQIECBAICAggASSLECBAgAABAgQIECAwR0AAmeNoKwQIECBAgAABAgQIBAQEkACSRQgQIECAAAECBAgQmCMggMxxtBUCBAgQIECAAAECBAICAkgAySIECBAgQIAAAQIECMwREEDmONoKAQIECBAgQIAAAQIBAQEkgGQRAgQIECBAgAABAgTmCAggcxxthQABAgQIECBAgACBgIAAEkCyCAECBAgQIECAAAECcwQEkDmOtkKAAAECBAgQIECAQEBAAAkgWYQAAQIECBAgQIAAgTkCAsgcR1shQIAAAQIECBAgQCAgIIAEkCxCgAABAgQIECBAgMAcAQFkjqOtECBAgAABAgQIECAQEBBAAkgWIUCAAAECBAgQIEBgjoAAMsfRVggQIECAAAECBAgQCAgIIAEkixAgQIAAAQIECBAgMEdAAJnjaCsECBAgQIAAAQIECAQEBJAAkkUIECBAgAABAgQIEJgjIIDMcbQVAgQIECBAgAABAgQCAgJIAMkiBAgQIECAAAECBAjMEfg/0AxDSRhTRVcAAAAASUVORK5CYII=" style="position: absolute; width: 800px; height: 600px; transform: translate(0px, 0px); transition: -webkit-transform 500ms ease;"></div><svg overflow="hidden" width="800" height="600" id="map_gc" style="overflow: visible; position: absolute;"><g id="graphicsLayer1_layer" data-geometry-type="point"><g></g></g><defs></defs><g id="map_graphics_layer" transform="matrix(1.00000000,0.00000000,0.00000000,1.00000000,0.00000000,0.00000000)" style="display: block;"><g></g></g></svg></div></div><div class="esriControlsBR"><span class="esriAttribution" style="max-width: 360px; cursor: pointer;"><span class="esriAttributionList"><span class="esriAttributionLastItem" style="display: inline;">Bureau of Land Management, Esri, HERE, DeLorme, INCREMENT P, NGA, USGS<span class="esriAttributionDelim"> | </span></span></span></span><div class="logo-med"></div></div><div class="esriPopup" style="visibility: hidden; z-index: 40;"><div class="esriPopupWrapper" style="position: absolute;"><div class="sizer"><div class="titlePane" style="-webkit-user-select: none;"><div class="spinner hidden" title="Searching..."></div><div class="title"></div><div class="titleButton prev hidden" title="Previous feature"></div><div class="titleButton next hidden" title="Next feature"></div><div class="titleButton maximize" title="Maximize"></div><div class="titleButton close" title="Close"></div></div></div><div class="sizer content"><div class="contentPane"></div></div><div class="sizer"><div class="actionsPane"><div class="actionList hidden"><a title="Zoom" to="" class="action zoomTo" href="javascript:void(0);"><span>Zoom to</span></a></div></div></div><div class="pointer hidden"></div></div><div class="outerPointer hidden"></div></div><div id="map_zoom_slider" class="esriSimpleSlider esriSimpleSliderVertical esriSimpleSliderTL" style="z-index: 30;"><div class="esriSimpleSliderIncrementButton">+</div><div class="esriSimpleSliderDecrementButton">–</div></div></div></div>
+            </div>
+            <div id="configArea">
+                	<h2>Sidenotes</h2>
+This is a demonstration of a canvas heatmap overlay with the <a href="http://help.arcgis.com/en/webapi/javascript/arcgis/" target="_blank">ArcGIS API for JavaScript</a>.
+                <br>
+                <br>View the <a href="http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/SanFrancisco/311Incidents/MapServer/0" target="_blank">Feature layer</a>.
+                <div id="tog" class="btn">Toggle HeatmapOverlay</div>
+                <div id="tog2" class="btn">Toggle Points</div>
+                <div id="tog3" class="btn">Local Max Off</div>
+            </div>
+            <div style="text-align:center;"><a href="http://www.patrick-wied.at/static/heatmapjs/">heatmap.js</a> by
+                <a href="http://www.patrick-wied.at/" target="_blank">Patrick Wied</a>
+            </div>
+        </div>
+        <div style="clear:both;"></div>
+        <div style="width:1020px; padding:20px; margin:auto;">
+             <h2>Description</h2>
+
+            <p>This is a custom DynamicMapServiceLayer for Heatmap.js to work with the
+                ArcGIS Javascript API.</p>
+             <h2>Instructions</h2>
+
+            <ol>
+                <li>Include the heatmap.js in your HTML document and require "application/HeatmapLayer" <pre>        &lt;script type="text/javascript" src="src/heatmap.js"&gt;&lt;/script&gt;
+        </pre>
+
+                </li>
+                <li>Add a div with an ID to hold he canvas element <pre>&lt;div id="heatLayer"&gt;&lt;/div&gt;</pre>
+
+                </li>
+                <li>Create the heatmap with it's settings and assign it to a global variable. <pre>        // create heat layer
+            heatLayer = new HeatmapLayer({
+                config: {
+                    "useLocalMaximum": false,
+                    "radius": 40,
+                    "gradient": {
+                        0.45: "rgb(000,000,255)",
+                        0.55: "rgb(000,255,255)",
+                        0.65: "rgb(000,255,000)",
+                        0.95: "rgb(255,255,000)",
+                        1.00: "rgb(255,000,000)"
+                    }
+                },
+                "map": map,
+                "opacity": 0.85
+            }, "heatLayer");
+        </pre>
+
+                </li>
+                <li>Add the heatLayer to the map. <pre>        map.addLayer(heatLayer);
+        </pre>
+
+                </li>
+                <li>Now you just need to add data points to the heatmap. In the example above,
+                    I am adding features from a feature layer of 311 incidents. Here's an example with
+                    two features. <pre>        var data = [
+            {
+                attributes: {},
+                geometry: {
+                    spatialReference: {wkid: 102100}
+                    type: "point"
+                    x: -13625078.0408
+                    y: 4548494.332400002
+                }
+            },
+            {
+                attributes: {},
+                geometry: {
+                    spatialReference: {wkid: 102100}
+                    type: "point"
+                    x: -13625078.0408
+                    y: 4548494.332400002
+                }
+            }
+        ];
+        </pre>
+ <pre>        heatLayer.setData(data);
+        </pre>
+
+                </li>
+                <li>I created a function that executes on map pan that gets all the features
+                    from a featureLayer within the map's extent.
+<pre>function getFeatures() {
+    // set up query
+    var q = new Query();
+    // only within extent
+    q.geometry = map.extent;
+    // give me all of them!
+    q.where = "1=1";
+    // make sure I get them back in my spatial reference
+    q.outSpatialReference = map.spatialReference;
+    // get em!
+    featureLayer.queryFeatures(q, function (featureSet) {
+        var data = [];
+        // if we get results back
+        if (featureSet &amp;&amp; featureSet.features &amp;&amp; featureSet.features.length &gt; 0) {
+            // set data to features
+            data = featureSet.features;
+        }
+        // set heatmap data
+        heatLayer.setData(data);
+    });
+}
+</pre>
+
+                </li>
+            </ol>
+             <h2>Dependencies</h2>
+
+            <ul>
+                <li>HTML5 Canvas
+                    <iframe src="./heatmap.js ArcGIS JavaScript API Heatmap Layer_files/saved_resource.html" width="1020" scrolling="no" frameborder="0" height="400"></iframe>
+                </li>
+                <li> <a href="http://www.patrick-wied.at/static/heatmapjs/">Heatmap.js</a>
+
+                </li>
+            </ul>
+        </div>
+    
+    <script type="text/javascript" charset="utf-8" src="./heatmap.js ArcGIS JavaScript API Heatmap Layer_files/jsapi_en-us.js"></script><script type="text/javascript" charset="utf-8" src="./heatmap.js ArcGIS JavaScript API Heatmap Layer_files/svg.js"></script><script type="text/javascript" charset="utf-8" src="./heatmap.js ArcGIS JavaScript API Heatmap Layer_files/FeatureLayer.js"></script><script type="text/javascript" charset="utf-8" src="./heatmap.js ArcGIS JavaScript API Heatmap Layer_files/HeatmapLayer.js"></script><script type="text/javascript" charset="utf-8" src="./heatmap.js ArcGIS JavaScript API Heatmap Layer_files/FeatureType.js"></script><script type="text/javascript" charset="utf-8" src="./heatmap.js ArcGIS JavaScript API Heatmap Layer_files/FeatureTemplate.js"></script><script type="text/javascript" charset="utf-8" src="./heatmap.js ArcGIS JavaScript API Heatmap Layer_files/FeatureEditResult.js"></script><script type="text/javascript" charset="utf-8" src="./heatmap.js ArcGIS JavaScript API Heatmap Layer_files/SnapshotMode.js"></script><script type="text/javascript" charset="utf-8" src="./heatmap.js ArcGIS JavaScript API Heatmap Layer_files/OnDemandMode.js"></script><script type="text/javascript" charset="utf-8" src="./heatmap.js ArcGIS JavaScript API Heatmap Layer_files/SelectionMode.js"></script><script type="text/javascript" charset="utf-8" src="./heatmap.js ArcGIS JavaScript API Heatmap Layer_files/StreamMode.js"></script><script type="text/javascript" charset="utf-8" src="./heatmap.js ArcGIS JavaScript API Heatmap Layer_files/TrackManager.js"></script><script type="text/javascript" charset="utf-8" src="./heatmap.js ArcGIS JavaScript API Heatmap Layer_files/RenderMode.js"></script><script type="text/javascript" charset="utf-8" src="./heatmap.js ArcGIS JavaScript API Heatmap Layer_files/GridLayout.js"></script><script type="text/javascript">
+        // get current path
+            var pathRegex = new RegExp(/\/[^\/]+$/);
+            var locationPath = location.pathname.replace(pathRegex, '');
+            // Dojo Config
+            var dojoConfig = {
+                packages: [
+                    {
+                        name: "application",
+                        location: locationPath + 'src/'
+                    }
+                ]
+            };
+        </script>
+        <script type="text/javascript" src="./heatmap.js ArcGIS JavaScript API Heatmap Layer_files/saved_resource"></script>
+        <script type="text/javascript" src="./heatmap.js ArcGIS JavaScript API Heatmap Layer_files/heatmap.js"></script>
+        <script type="text/javascript">
+        require([
+            "esri/map",
+            "dojo/on",
+            "dojo/dom",
+            "esri/layers/FeatureLayer",
+            "application/HeatmapLayer",
+            "esri/tasks/query",
+            "esri/geometry/Extent",
+            "dojo/domReady!"
+        ], function(
+            Map,
+            on,
+            dom,
+            FeatureLayer,
+            HeatmapLayer,
+            Query,
+            Extent
+        ){
+            
+            // Variables
+            var map;
+            var heatLayer;
+            var featureLayer;
+
+            // get the features within the current extent from the feature layer
+            function getFeatures() {
+                // set up query
+                var q = new Query();
+                // only within extent
+                q.geometry = map.extent;
+                // give me all of them!
+                q.where = "1=1";
+                // make sure I get them back in my spatial reference
+                q.outSpatialReference = map.spatialReference;
+                // get em!
+                featureLayer.queryFeatures(q, function (featureSet) {
+                    var data = [];
+                    // if we get results back
+                    if (featureSet && featureSet.features && featureSet.features.length) {
+                        // set data to features
+                        data = featureSet.features;
+                    }
+                    // set heatmap data
+                    heatLayer.setData(data);
+                });
+            }
+
+       
+            // initial extent of map
+            var initExtent = new Extent({
+                xmax: -13624229.32056175,
+                xmin: -13625120.886837104,
+                ymax: 4548374.604660432,
+                ymin: 4547966.144290476,
+                "spatialReference": {
+                    "wkid": 102100
+                }
+            });
+            // create map
+            map = new Map("map", {
+                extent: initExtent,
+                sliderStyle: "small",
+                basemap: "streets"
+            });
+            
+            
+            
+     
+            // create heat layer
+            heatLayer = new HeatmapLayer({
+                "useLocalMaximum": false,
+                config: {
+                    "radius": 40,
+                    "gradient": {
+                        0.45: "rgb(000,000,255)",
+                        0.55: "rgb(000,255,255)",
+                        0.65: "rgb(000,255,000)",
+                        0.95: "rgb(255,255,000)",
+                        1.00: "rgb(255,000,000)"
+                    }
+                },
+                "map": map,
+                "opacity": 0.85
+            }, "heatLayer");
+            
+            
+            // add heat layer to map
+            map.addLayer(heatLayer);
+            // resize map
+            map.resize();
+            // create feature layer to get the points from
+            featureLayer = new FeatureLayer("http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/SanFrancisco/311Incidents/MapServer/0", {
+                mode: FeatureLayer.MODE_ONDEMAND,
+                visible: false
+            });
+            map.addLayer(featureLayer);
+            // on map extent change
+            on(map, "extent-change", getFeatures);
+            on(dom.byId('tog'), "click", function () {
+                if (heatLayer.visible) {
+                    heatLayer.hide();
+                } else {
+                    heatLayer.show();
+                }
+            });
+            on(dom.byId('tog2'), "click", function () {
+                if (featureLayer.visible) {
+                    featureLayer.hide();
+                } else {
+                    featureLayer.show();
+                }
+            });
+            on(dom.byId('tog3'), "click", function () {
+                if (heatLayer.config.useLocalMaximum) {
+                    this.innerHTML = 'Local Max Off';
+                    heatLayer.config.useLocalMaximum = false;
+                } else {
+                    this.innerHTML = 'Local Max On';
+                    heatLayer.config.useLocalMaximum = true;
+                }
+            });
+        });
+    </script>
+</body></html>

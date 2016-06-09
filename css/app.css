@@ -131,15 +131,15 @@ nav.navbar {
 
 .related-artists .grid {
   float: left;
-  margin: 5px;
   background: white;
   text-align: center;
   font-weight: 800;
+  margin: 0;
 }
 
 .grid-image {
-  width: 170px;
-  height: 200px;
+  width: 145px;
+  height: 160px;
 }
 
 .legend {
